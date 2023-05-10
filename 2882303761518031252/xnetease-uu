@@ -1,0 +1,40 @@
+#!/bin/sh
+cleanall() {
+    killall uuplugin_monitor.sh
+    killall uuplugin
+}
+
+plugon() {
+    cleanall
+    mode=`uci -q get xiaoqiang.common.NETMODE`
+    if [ "$mode" == "wifiapmode" -o "$mode" == "lanapmode" ]; then
+        echo "In AP mode, exit!"
+        return 0
+    fi
+
+    ldate=`date +%F`
+    ltime=`date +%T`
+    logger "stat_points_none netease-uu=$ldate|$ltime|on"
+    /userdisk/appdata/2882303761518031252/uuplugin_monitor.sh &
+    return 0
+}
+
+plugoff() {
+    cleanall
+    mode=`uci -q get xiaoqiang.common.NETMODE`
+    if [ "$mode" == "wifiapmode" -o "$mode" == "lanapmode" ]; then
+        echo "In AP mode, exit!"
+        return 0
+    fi
+
+    ldate=`date +%F`
+    ltime=`date +%T`
+    logger "stat_points_none netease-uu=$ldate|$ltime|off"
+    return 0
+}
+
+if [ "$1" == "plugon" ]; then
+    plugon
+elif [ "$1" == "plugoff" ]; then
+    plugoff
+fi

@@ -1,0 +1,2 @@
+RUN ./xnetease-uu plugon
+STOP /userdisk/appdata/2882303761518031252/xnetease-uu plugoff

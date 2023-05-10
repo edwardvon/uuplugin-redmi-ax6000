@@ -1,0 +1,16 @@
+plugin_id = "2882303761518031252";
+name = "网易UU游戏加速";
+introduction = "网易UU加速器专门针对游戏线路加速，自动优化。作为一款专业的游戏加速器，网易UU智能选路、降低延迟、断线重连、防止卡顿。加强游戏稳定性不丢包！外服游戏加速，由国际专线支持，保障海外游戏连接登录流畅顺利。";
+summary = "网易UU加速器-专业、极速、稳定的网络优化游戏加速工具。";
+market_icon = "http://file.market.xiaomi.com/download/AppStore/02032b58bbf454e16346248873c54eb1dea991a92";
+installed_icon = "http://file.market.xiaomi.com/download/AppStore/0b032b58bbf454e16346248873f54eb6dea961a92";
+detail_image = "http://file.market.xiaomi.com/download/AppStore/09b795fec44ce55b805f29a084c95da872141e3e7";
+developer = "netease-uu";
+version = "4.0.2";
+control_url = "https://router.uu.163.com/xiaomi/index.html";
+sdk_level = "100";
+supported_rom = "miwifi_rom_2";
+small_icon = "http://file.market.xiaomi.com/download/AppStore/02032b58bbf454e16346248873c54eb1dea991a92";
+large_icon = "http://file.market.xiaomi.com/download/AppStore/0b032b58bbf454e16346248873f54eb6dea961a92";
+manifest_version = "1";
+capability_list = [ "access_proc" ];
