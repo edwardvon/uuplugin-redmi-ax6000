@@ -41,7 +41,7 @@ chmod 777 *
 3. 2882303761518031252.json 复制到/userdisk/appdata/installPlugin/下
 4. [重要]把启动命令写到/data/auto_ssh/auto_ssh.sh结尾（你手动写也行）
 ```
-echo "sleep 5 && /bin/sh ${PLUGIN_DIR}/uuplugin_monitor.sh &" >> /data/auto_ssh/auto_ssh.sh
+echo "sleep 5 && /bin/sh /userdisk/appdata/2882303761518031252/uuplugin_monitor.sh &" >> /data/auto_ssh/auto_ssh.sh
 ```
 5. 现在理论上重启以后就能用UU主机加速APP，或者在米家的路由器页面绑定（后附功能截图）
 
