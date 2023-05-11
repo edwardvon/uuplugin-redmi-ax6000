@@ -17,7 +17,17 @@ start_uuplugin() {
 ```
 
 ## 安装
-### （工作忙）自动脚本没还没写完，先说手动方法
+### （工作忙）先放一个简单的一键脚本，希望能用
+1. ssh登录路由器
+2. 下载auto.sh并运行
+```
+cd /data
+curl -O https://raw.githubusercontent.com/edwardvon/uuplugin-redmi-ax6000/main/auto.sh
+chmod +x ./auto.sh
+./auto.sh
+```
+
+### 手动方法（也可以参考auto.sh，其实也很简单）
 0. 官方固件先解锁SSH，详请见：https://www.right.com.cn/forum/thread-8258466-1-1.html 
  一定要永久开启SSH，这样才有auto_ssh脚本以便开机自动运行UU
 1. 把 2882303761518031252文件夹 复制到路由器/userdisk/appdata/下
