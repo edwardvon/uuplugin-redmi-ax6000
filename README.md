@@ -20,6 +20,7 @@ start_uuplugin() {
 ### （工作忙）先放一个简单的一键脚本，希望能用
 1. ssh登录路由器
 2. 下载auto.sh并运行
+（或者你手动下载auto.sh传到路由器里运行）
 ```
 cd /data
 curl -O https://raw.githubusercontent.com/edwardvon/uuplugin-redmi-ax6000/main/auto.sh
