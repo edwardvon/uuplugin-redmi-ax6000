@@ -19,6 +19,8 @@ start_uuplugin() {
 ```
 
 ## 安装
+### 防雷提醒：如果你不明白以下操作，请不要随便尝试，分享者不为一切后果负责。
+
 ### （主要安装步骤参考auto.sh，希望大佬提点优化意见）
 0. 官方固件先解锁SSH，详请见：https://www.right.com.cn/forum/thread-8258466-1-1.html 
  一定要永久开启SSH，这样才有auto_ssh脚本以便开机自动运行UU
