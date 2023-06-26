@@ -9,6 +9,8 @@
 start_uuplugin() {
     local uuplugin="${RUNNING_DIR}/${PLUGIN_EXE}"
     local conf="${RUNNING_DIR}/${PLUGIN_CONF}"
+
+# 就加了这一句
 +++ export LD_LIBRARY_PATH=${RUNNING_DIR}/lib:${LD_LIBRARY_PATH}
 
     chmod u+x "${uuplugin}"
@@ -17,31 +19,24 @@ start_uuplugin() {
 ```
 
 ## 安装
-### （工作忙）先放一个简单的一键脚本，希望能用
-1. ssh登录路由器
-2. 下载auto.sh并运行
-（或者你手动下载auto.sh传到路由器里运行）
-```
-cd /data
-curl -O https://raw.githubusercontent.com/edwardvon/uuplugin-redmi-ax6000/main/auto.sh
-chmod +x ./auto.sh
-./auto.sh
-```
-
-### 手动方法（也可以参考auto.sh，其实也很简单）
+### （主要安装步骤参考auto.sh，希望大佬提点优化意见）
 0. 官方固件先解锁SSH，详请见：https://www.right.com.cn/forum/thread-8258466-1-1.html 
  一定要永久开启SSH，这样才有auto_ssh脚本以便开机自动运行UU
-1. 把 2882303761518031252文件夹 复制到路由器/userdisk/appdata/下
-2. 修改脚本运行权限
-```
-cd /userdisk/appdata/2882303761518031252
-chmod 777 *
-```
 
-3. 2882303761518031252.json 复制到/userdisk/appdata/installPlugin/下
-4. [重要]把启动命令写到/data/auto_ssh/auto_ssh.sh结尾（你手动写也行）
+1. ssh登录路由器（建议用MobaXterm等，方便传文件）
+
+2. 下载本仓库所有文件，复制到路由器/data目录下（任意文件夹，例如/data/uuplugin）
+3. 修改权限，运行auto.sh
 ```
-echo "sleep 5 && /bin/sh /userdisk/appdata/2882303761518031252/uuplugin_monitor.sh &" >> /data/auto_ssh/auto_ssh.sh
+cd /data/uuplugin
+chmod +x auto.sh
+./auto.sh
+```
+    auto.sh自动检测插件安装目录进行安装，然后运行。
+
+4. [重要]把启动命令写到/data/auto_ssh/auto_ssh.sh结尾（vi写也行，目的是重启后自动启动插件）
+```
+echo "sleep 5 && /bin/sh /data/uuplugin/auto.sh &" >> /data/auto_ssh/auto_ssh.sh
 ```
 5. 现在理论上重启以后就能用UU主机加速APP，或者在米家的路由器页面绑定（后附功能截图）
 
