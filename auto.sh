@@ -5,8 +5,7 @@ PLUGIN_DIR=/userdisk/appdata/$PLUGIN_ID
 
 if [ ! -d $PLUGIN_DIR ]; then
     cp -r "./${PLUGIN_ID}" $PLUGIN_DIR
-    cd $PLUGIN_DIR
-    chmod +x *
+    chmod -R +x $PLUGIN_DIR
 fi
 
 if [ ! -f "/userdisk/appdata/installPlugin/${PLUGIN_ID}.json" ]; then
