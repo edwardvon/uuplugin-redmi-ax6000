@@ -1,8 +1,6 @@
 # uuplugin-redmi-ax6000
 用于红米AX6000路由器的网易UU加速器插件。
 
-腾讯加速器（测试中）：https://github.com/edwardvon/tencent-accelerator-rb06
-
 ## 修改内容说明
 实际上是从小米AX6000的插件抓过来的，只不过红米ax6000原版系统缺了libssl.so，补上了以后在原版插件的启动命令上补了lib的临时变量。
 ```
