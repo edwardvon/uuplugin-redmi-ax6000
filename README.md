@@ -27,7 +27,7 @@ start_uuplugin() {
 
 1. ssh登录路由器（建议用MobaXterm等，方便传文件）
 
-2. 下载本仓库所有文件，复制到路由器/data目录下（任意文件夹，例如/data/uuplugin）
+2. 下载本仓库所有文件，复制到路由器/data/uuplugin目录下（手动创建uuplugin文件夹）
 3. 修改权限，运行auto.sh
 ```
 cd /data/uuplugin
@@ -36,7 +36,7 @@ chmod +x auto.sh
 ```
     auto.sh自动检测插件安装目录进行安装，然后运行。
 
-4. [重要]把启动命令写到/data/auto_ssh/auto_ssh.sh结尾（vi写也行，目的是重启后自动启动插件）
+4. [重要]把启动命令写到/data/auto_ssh/auto_ssh.sh末尾 新行（vi写也行，目的是重启后自动启动插件）
 ```
 echo "sleep 5 && /bin/sh /data/uuplugin/auto.sh &" >> /data/auto_ssh/auto_ssh.sh
 ```
