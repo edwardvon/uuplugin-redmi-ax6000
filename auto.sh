@@ -12,4 +12,4 @@ if [ ! -f "/userdisk/appdata/installPlugin/${PLUGIN_ID}.json" ]; then
     cp "./${PLUGIN_ID}.json" "/userdisk/appdata/installPlugin/${PLUGIN_ID}.json"
 fi
 
-$PLUGIN_DIR/uuplugin_monitor.sh 
+$PLUGIN_DIR/uuplugin_monitor.sh &
