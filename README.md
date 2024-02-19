@@ -23,7 +23,6 @@ start_uuplugin() {
 
 ### （主要安装步骤参考auto.sh，希望大佬提点优化意见）
 0. 官方固件先解锁SSH，详请见：https://www.right.com.cn/forum/thread-8258466-1-1.html 
- 一定要永久开启SSH，这样才有auto_ssh脚本以便开机自动运行UU
 
 1. ssh登录路由器（建议用MobaXterm等，方便传文件）
 
@@ -34,22 +33,22 @@ cd /data/uuplugin
 chmod +x auto.sh
 ./auto.sh
 ```
-    auto.sh自动检测插件安装目录进行安装，然后运行。
+    auto.sh会检测插件安装目录，然后复制文件、运行。
 
-4. [**重要**]把启动命令写到/data/auto_ssh/auto_ssh.sh **末尾新行**（例如vi写，目的是重启后自动启动插件）
+4. [**重要**]插件自启动配置
+ssh依次输入：
 ```
-sleep 5 && /bin/sh /data/uuplugin/auto.sh &
+uci set firewall.uuplugin=include
+uci set firewall.uuplugin.type='script'
+uci set firewall.uuplugin.path='/data/uuplugin/auto.sh'        ##这里指向auto.sh文件所在目录
+uci set firewall.uuplugin.enabled='1'
+uci commit firewall
 ```
-修改完的auto_ssh.sh结尾处类似：
-```
-#/data/auto_ssh/auto_ssh.sh末尾
-
-main "$@"
-sleep 5 && /bin/sh /data/uuplugin/auto.sh &    ## 添加的语句
-```
-（总之能让脚本启动/data/uuplugin/auto.sh就行）
 
 5. 现在理论上重启以后就能用UU主机加速APP，或者在米家的路由器页面绑定（后附功能截图）
+
+## 其他已知问题
+1. 手机app不显示网络延迟、丢包率，但实际加速生效
 
 ## 功能情况预览
 1. UU主机加速APP
