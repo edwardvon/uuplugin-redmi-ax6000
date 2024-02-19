@@ -36,10 +36,19 @@ chmod +x auto.sh
 ```
     auto.sh自动检测插件安装目录进行安装，然后运行。
 
-4. [重要]把启动命令写到/data/auto_ssh/auto_ssh.sh末尾 新行（vi写也行，目的是重启后自动启动插件）
+4. [**重要**]把启动命令写到/data/auto_ssh/auto_ssh.sh **末尾新行**（例如vi写，目的是重启后自动启动插件）
 ```
-echo "sleep 5 && /bin/sh /data/uuplugin/auto.sh &" >> /data/auto_ssh/auto_ssh.sh
+sleep 5 && /bin/sh /data/uuplugin/auto.sh &
 ```
+修改完的auto_ssh.sh结尾处类似：
+```
+#/data/auto_ssh/auto_ssh.sh末尾
+
+main "$@"
+sleep 5 && /bin/sh /data/uuplugin/auto.sh &    ## 添加的语句
+```
+（总之能让脚本启动/data/uuplugin/auto.sh就行）
+
 5. 现在理论上重启以后就能用UU主机加速APP，或者在米家的路由器页面绑定（后附功能截图）
 
 ## 功能情况预览
